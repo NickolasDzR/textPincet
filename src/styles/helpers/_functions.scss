@@ -1,0 +1,16 @@
+@function rem($px) {
+    @return ($px / 16)+rem;
+}
+
+@function rnum($px) {
+    @return ($px / 16);
+}
+
+$vw-viewport: 1920;
+$vw-enable: true;
+
+@function get-vw($num) {
+    $vw-context: $vw-viewport * 0.01 * 1;
+    @return $num / $vw-context * 1vw;
+    @return $num;
+}

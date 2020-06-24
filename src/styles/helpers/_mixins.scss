@@ -1,0 +1,419 @@
+@mixin reset() {
+    * {
+        box-sizing: border-box;
+    }
+
+    body,
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    pre,
+    code,
+    form,
+    fieldset,
+    input,
+    textarea,
+    p,
+    blockquote,
+    th,
+    td {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    fieldset,
+    img,
+    abbr {
+        border: 0;
+    }
+
+    address,
+    caption,
+    cite,
+    code,
+    dfn,
+    em,
+    strong,
+    th,
+    var {
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    caption,
+    th {
+        text-align: left;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 100%;
+        font-weight: normal;
+    }
+
+    sup {
+        vertical-align: text-top;
+    }
+
+    sub {
+        vertical-align: text-bottom;
+    }
+
+    input,
+    textarea,
+    select {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    legend {
+        color: #000;
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section,
+    main {
+        display: block;
+    }
+
+    img {
+        @include md(max-width, 100%);
+        height: auto;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+$col-fields-num: rnum(15);
+$col-fields: $col-fields-num+rem;
+
+$break_xl-num: rnum(1680);
+$break_lg-num: rnum(1280);
+$break_md-num: rnum(992);
+$break_sm-num: rnum(768);
+$break_xs-num: rnum(320);
+
+$break_xl: $break_xl-num+rem;
+$break_lg: $break_lg-num+rem;
+$break_md: $break_md-num+rem;
+$break_sm: $break_sm-num+rem;
+$break_xs: $break_xs-num+rem;
+
+
+@mixin xl($property, $value) {
+    @media (max-width: $break_xl) {
+        #{$property}: #{$value};
+    }
+}
+
+@mixin lg($property, $value) {
+    @media (max-width: $break_lg) {
+        #{$property}: #{$value};
+    }
+}
+
+@mixin md($property, $value) {
+    @media (max-width: $break_md) {
+        #{$property}: #{$value};
+    }
+}
+
+@mixin sm($property, $value) {
+    @media (max-width: $break_sm) {
+        #{$property}: #{$value};
+    }
+}
+
+@mixin xs($property, $value) {
+    @media (max-width: $break_xs) {
+        #{$property}: #{$value};
+    }
+}
+
+@mixin container-xl() {
+    @include xl(max-width, get-vw(($break_xl-num) * 16));
+}
+
+@mixin container-lg() {
+    @include lg(max-width, get-vw(($break_lg-num) * 16));
+}
+
+@mixin container-md() {
+    @include sm(max-width, ($break_md-num) +rem);
+}
+
+@mixin container-sm() {
+    @include sm(max-width, ($break_sm-num) +rem);
+}
+
+@mixin container-xs() {
+    @include xs(max-width, ($break_xs-num) +rem);
+}
+
+@mixin container-prop() {
+    padding-right: get-vw($col-fields-num * 16);
+    padding-left: get-vw($col-fields-num * 16);
+    @include md(padding-right, 0.9375rem);
+    @include md(padding-left, 0.9375rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin container-fluid() {
+    width: 100%;
+    @include container-prop();
+}
+
+@mixin container() {
+    max-width: get-vw(($break_xl-num) * 16);
+    @include container-prop();
+    @include container-lg();
+    @include container-md();
+}
+
+@mixin container-nm() {
+    max-width: ($break_xl-num - ($col-fields-num * 2)) +rem;
+    margin-right: auto;
+    margin-left: auto;
+    @include container-lg();
+    @include container-md();
+}
+
+@mixin row() {
+    display: flex;
+    flex-wrap: wrap;
+    // margin-right: -$col-fields;
+    // margin-left: -$col-fields;
+    margin-right: get-vw(-$col-fields-num * 16);
+    margin-left: get-vw(-$col-fields-num * 16);
+    @include md(margin-right, -0.9375rem);
+    @include md(margin-left, -0.9375rem);
+}
+
+@mixin row-xl() {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$col-fields;
+    margin-left: -$col-fields;
+}
+
+@mixin row-lg() {
+    @include lg(display, flex);
+    @include lg(flex-wrap, wrap);
+    @include lg(margin-right, -$col-fields);
+    @include lg(margin-left, -$col-fields);
+}
+
+@mixin row-md() {
+    @include md(display, flex);
+    @include md(flex-wrap, wrap);
+    @include md(margin-right, -$col-fields);
+    @include md(margin-left, -$col-fields);
+}
+
+@mixin row-sm() {
+    @include sm(display, flex);
+    @include sm(flex-wrap, wrap);
+    @include sm(margin-right, -$col-fields);
+    @include sm(margin-left, -$col-fields);
+}
+
+@mixin row-xs() {
+    @include xs(display, flex);
+    @include xs(flex-wrap, wrap);
+    @include xs(margin-right, -$col-fields);
+    @include xs(margin-left, -$col-fields);
+}
+
+@mixin row-nm() {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin col-prop() {
+    position: relative;
+    width: 100%;
+    padding-right: get-vw($col-fields-num * 16);
+    padding-left: get-vw($col-fields-num * 16);
+}
+
+/**col with intend **/
+// @mixin col-xl($n) {
+//     flex-basis: get-vw((($break_xl-num / 12) * $n) * 16);
+//     max-width: get-vw(($break_xl-num / 12 * $n) * 16);
+//     padding-right: get-vw($col-fields-num * 16);
+//     padding-left: get-vw($col-fields-num * 16);
+// }
+
+// @mixin col-lg($n) {
+//     @include lg(flex-basis, get-vw(($break_lg-num / 12 * $n) * 16));
+//     @include lg(max-width, get-vw(($break_lg-num / 12 * $n) * 16));
+//     @include lg(padding-right, get-vw($col-fields-num * 16));
+//     @include lg(padding-left, get-vw($col-fields-num * 16));
+// }
+
+// @mixin col-md($n) {
+//     @include md(flex-basis, $break_md-num / 12 * $n - ($col-fields-num * 2) +rem);
+//     @include md(max-width, $break_md-num / 12 * $n - ($col-fields-num * 2) +rem);
+//     @include md(padding-left, $col-fields);
+//     @include md(padding-right, $col-fields);
+// }
+
+// @mixin col-sm($n) {
+//     @include sm(flex-basis, $break_sm-num / 12 * $n + rem);
+//     @include sm(max-width, $break_sm-num / 12 * $n + rem);
+//     @include sm(padding-left, $col-fields);
+//     @include sm(padding-right, $col-fields);
+// }
+
+// @mixin col-xs($n) {
+//     @include xs(flex-basis, $break_xs-num / 12 * $n + rem);
+//     @include xs(max-width, $break_xs-num / 12 * $n + rem);
+//     @include xs(padding-left, $col-fields);
+//     @include xs(padding-right, $col-fields);
+// }
+
+@mixin col-xl($n) {
+    flex-basis: 100 / 12 * $n + '%';
+    max-width: 100 / 12 * $n + '%';
+    padding-right: get-vw($col-fields-num * 16);
+    padding-left: get-vw($col-fields-num * 16);
+}
+@mixin col-lg($n) {
+    @include lg(flex-basis, 100 / 12 * $n + '%');
+    @include lg(max-width, 100 / 12 * $n + '%');
+    @include lg(padding-right, get-vw($col-fields-num * 16));
+    @include lg(padding-left, get-vw($col-fields-num * 16));
+}
+@mixin col-md($n) {
+    @include md(flex-basis, 100 / 12 * $n + '%');
+    @include md(max-width, 100 / 12 * $n + '%');
+    @include md(padding-right, rem($col-fields-num));
+    @include md(padding-left, rem($col-fields-num ));
+}
+
+@mixin col-sm($n) {
+    @include sm(flex-basis, 100 / 12 * $n + '%');
+    @include sm(max-width, 100 / 12 * $n + '%');
+    @include sm(padding-right, rem($col-fields-num));
+    @include sm(padding-left, rem($col-fields-num ));
+}
+
+@mixin col-xs($n) {
+    @include xs(flex-basis, 100 / 12 * $n + '%');
+    @include xs(max-width, 100 / 12 * $n + '%');
+    @include xs(padding-right, rem($col-fields-num));
+    @include xs(padding-left, rem($col-fields-num ));
+}
+
+/** col with intend **/
+
+
+/** col with no intend **/
+
+@mixin col-nm-xl($n) {
+    flex-basis: 100% / 12 * $n;
+    max-width: 100% / 12 * $n;
+}
+
+@mixin col-nm-lg($n) {
+    @include lg(flex-basis, 100% / 12 * $n);
+    @include lg(max-width, 100% / 12 * $n);
+}
+
+@mixin col-nm-md($n) {
+    @include md(flex-basis, 100% / 12 * $n);
+    @include md(max-width, 100% / 12 * $n);
+}
+
+@mixin col-nm-sm($n) {
+    @include sm(flex-basis, 100% / 12 * $n);
+    @include sm(max-width, 100% / 12 * $n);
+}
+
+@mixin col-nm-xs($n) {
+    @include xs(flex-basis, 100% / 12 * $n);
+    @include xs(max-width, 100% / 12 * $n);
+}
+
+/** col with no intend **/
+
+
+/** left offset **/
+@mixin offset-xl-left($n) {
+    margin-left: get-vw((($break_xl-num / 12) * 16) * $n);
+}
+
+@mixin offset-lg-left($n) {
+    @include lg(margin-left, 100% / 12 * $n);
+}
+
+@mixin offset-md-left($n) {
+    @include md(margin-left, 100% / 12 * $n);
+}
+
+@mixin offset-sm-left($n) {
+    @include sm(margin-left, 100% / 12 * $n);
+}
+
+@mixin offset-xs-left($n) {
+    @include xs(margin-left, 100% / 12 * $n);
+}
+
+/** left offset **/
+/** right offset **/
+@mixin offset-xl-right($n) {
+    margin-right: 100% / 12 * $n;
+}
+
+@mixin offset-lg-right($n) {
+    @include lg(margin-right, 100% / 12 * $n);
+}
+
+@mixin offset-md-right($n) {
+    @include md(margin-right, 100% / 12 * $n);
+}
+
+@mixin offset-sm-right($n) {
+    @include sm(margin-right, 100% / 12 * $n);
+}
+
+@mixin offset-xs-right($n) {
+    @include xs(margin-right, 100% / 12 * $n);
+}
+
+/** right offset **/

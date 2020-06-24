@@ -1,0 +1,236 @@
+.contacts {
+    &__left {
+        @include col-xl(4);
+        @include col-lg(4);
+        @include col-md(12);
+    }
+
+    &__right {
+        @include col-xl(8);
+        @include col-lg(8);
+        @include col-md(12);
+        display: flex;
+        align-items: center;
+
+        padding: {
+            left: get-vw(80);
+        }
+        @include md(padding-left, rem(15));
+        @include md(padding-right, rem(15));
+
+        &-wrapper {
+            justify-content: space-between;
+            width: 100%;
+            @include row-md();
+            @include md(justify-content, space-evenly);
+        }
+    }
+
+    &__direct {
+        margin: auto 0;
+        @include md(margin, 0 auto);
+        @include md(font-size, rem(16));
+        @include md(margin-bottom, rem(10));
+
+        font: {
+            size: get-vw(14);
+        }
+
+        margin: {
+            left: get-vw(43);
+        }
+
+        @include lg(margin-left, 1.13958vw);
+
+        br {
+            display: none;
+        }
+    }
+
+    &__logo {
+        @include md(width, 100%);
+        &-img {
+            max-width: get-vw(280);
+            @include lg(max-width, 12.58333vw);
+            @include md(display, block);
+            @include md(margin, 0 auto);
+            @include md(margin-bottom, rem(10));
+        }
+    }
+
+    &__geo {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        @include col-md(4);
+    }
+    &__detail {
+        @include col-md(4);
+        @include md(display, flex);
+        @include md(flex-direction, column);
+        @include md(justify-content, center);
+    }
+
+    &__map {
+        max-width: get-vw(78);
+        max-height: get-vw(78);
+        @include md(max-width, 100%);
+        @include md(max-height, 100%)
+    }
+
+    &__adress {
+        margin-left: get-vw(20);
+        @include md(margin-bottom, rem(0));
+    }
+
+    &__direction {
+        margin-bottom: get-vw(10);
+        @include md(margin-bottom, rem(0));
+        @include lg(font-size, get-vw(12));
+        @include md(font-size, 0.65rem);
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    &__link {
+        color: #ff6078;
+        text-transform: uppercase;
+        font-size: get-vw(12);
+
+        border-bottom: {
+            style: dotted;
+            width: get-vw(1);
+        }
+
+        padding-bottom: get-vw(3);
+        @include md(padding-bottom, rem(3));
+
+        @include md(border-bottom-width, rem(1));
+
+        &:hover {
+            .contacts__map-box {
+                opacity: 1;
+                pointer-events: inherit;
+                transition: opacity .3s linear;
+            }
+        }
+    }
+
+    &__map-box {
+        position: absolute;
+        z-index: 50;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s linear;
+
+        iframe {
+            width: get-vw(400);
+            height: get-vw(400);
+            @include md(width, rem(400));
+            @include md(height, rem(400));
+        }
+    }
+
+    &__message {
+        font: {
+            size: get-vw(12);
+            weight: 500;
+        }
+
+        padding-left: get-vw(15);
+        @include md(padding-left, rem(15));
+
+        position: relative;
+
+        &:before {
+            content: '';
+            width: get-vw(6);
+            height: get-vw(6);
+            @include md(width, rem(6));
+            @include md(height, rem(6));
+            background-color: $gr;
+            border-radius: 50%;
+            box-shadow: 0 0 get-vw(7) rgba(79, 160, 55, 0.61);
+            @include md(box-shadow, 0 0 rem(7) rgba(79, 160, 55, 0.61));
+            position: absolute;
+            left: 0;
+            top: 35%;
+            opacity: 0;
+            animation-name: dotAnim;
+            animation-iteration-count: infinite;
+            animation-duration: 1.5s;
+
+        }
+    }
+
+    &__phone {
+        align-items: center;
+        margin-bottom: get-vw(10);
+        @include md(margin-bottom, rem(5));
+    }
+
+    &__graph {
+        align-items: center;
+    }
+
+    &__icon {
+        width: get-vw(35);
+        height: get-vw(35);
+        @include md(width, rem(35));
+        @include md(height, rem(35));
+        background-color: $wh;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: get-vw(10);
+        @include md(margin-right, rem(10));
+
+        &-clock {
+            width: get-vw(25);
+            height: get-vw(25);
+            @include md(width, rem(25));
+            @include md(height, rem(25));
+        }
+    }
+
+    &__number {
+        font: {
+            size: get-vw(24);
+            weight: 500;
+        }
+
+        @include lg(font-size, get-vw(22));
+
+        @include md(font-size, 1rem);
+    }
+
+    &__graphic {
+        font-size: get-vw(21);
+        @include md(font-size, 1.1125rem);
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    &__button-wrp {
+        display: inline-flex;
+        align-items: center;
+        @include col-md(12);
+        @include md(justify-content, center);
+        @include md(margin-top, rem(17));
+    }
+}
+
+@keyframes dotAnim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

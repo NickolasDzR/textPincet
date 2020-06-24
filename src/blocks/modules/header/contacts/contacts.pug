@@ -1,0 +1,35 @@
+include ../../../../views/helpers/mixins.pug
+mixin contacts()
+    section.contacts
+        .container
+            .row
+                .contacts__left
+                    .col-wrapper
+                        .contacts__logo
+                            img.contacts__logo-img(src="img/header/contacts/logo.png", alt="main logo site")
+                        p.contacts__direct Студия депиляции и <br>массажный кабинет<br> в Бресте
+                .contacts__right
+                    .col-wrapper.contacts__right-wrapper
+                        .contacts__geo
+                            img.contacts__map.shadow-box(src="img/header/contacts/map-label.png", alt="map label")
+                            .contacts__adress
+                                p.contacts__direction <span>Мы находимся в центре:</span><br>г. Брест, ул. Гоголя, д.65
+                                a.contacts__link(href="#") Смотреть на карте
+                                    .contacts__map-box
+                                        iframe(src='https://yandex.ru/map-widget/v1/?um=constructor%3A46c96e24d3de32d1d7374764911b2e6ccbb3a9d10b88f6e0ac159440b7fa41b2&source=constructor', frameborder='0')
+                        .contacts__detail
+                            .contacts__phone.col-wrapper
+                                .contacts__icon.shadow-box
+                                    +icon('phone-call', 'svg-icon')
+                                .contacts__text-wrapper
+                                    p.contacts__message Звоните, мы сейчас работаем
+                                    p.contacts__number +375 33 382 24 99
+                            .contacts__graph.col-wrapper
+                                .contacts__icon.shadow-box
+                                    +icon('clock', 'svg-icon contacts__icon-clock')
+                                .contacts__text-wrapper
+                                    p.contacts__graphic Пн-Вс <span>9:00-21:00</span>
+                        .contacts__button-wrp
+                            button.button.button__icon.contact__button
+                                +icon('calendar', 'svg-icon button__icon_calendar')
+                                |   Записаться онлайн

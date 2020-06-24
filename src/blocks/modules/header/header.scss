@@ -1,0 +1,33 @@
+.header {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.wave-box {
+    &__wave-img {
+        position: absolute;
+        bottom: get-vw(-60);
+        @include md(bottom, rem(-60));
+        width: 100%;
+        z-index: 10;
+    }
+    &__arrow {
+        width: get-vw(131);
+        height: get-vw(131);
+        @include md(width, rem(131));
+        @include md(height, rem(131));
+        position: absolute;
+        bottom: get-vw(14);
+        @include md(bottom, rem(14));
+        left: 46.533333%;
+        z-index: 10;
+        cursor: pointer;
+    }
+}
+
+@import "contacts/contacts";
+@import "navigation/navigation";
+@import "title/title";

@@ -1,0 +1,11 @@
+include contacts/contacts
+include navigation/navigation
+include title/title
+mixin header()
+    header.header(style="background-image: url('./img/header/background.jpg')")
+        +contacts
+        +navigation
+        +title
+        .wave-box
+            img.wave-box__wave-img(src="img/header/wave.png", alt="wave imgage")
+            img.wave-box__arrow(src="img/header/arrow.png", alt="decorate image")

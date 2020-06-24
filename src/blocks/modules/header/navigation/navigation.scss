@@ -1,0 +1,79 @@
+.nav {
+    padding: {
+        top: get-vw(15);
+    }
+
+    @include md(padding-top, rem(15));
+
+    &__inner {
+        background-color: #fff;
+        position: relative;
+
+        padding: {
+            top: get-vw(24);
+            right: get-vw(35);
+            bottom: get-vw(24);
+            left: get-vw(35);
+        }
+
+        @include md(padding-top, rem(24));
+        @include md(padding-right, rem(35));
+        @include md(padding-bottom, rem(24));
+        @include md(padding-left, rem(35));
+        width: 100%;
+        z-index: 1;
+
+        &:before {
+            content: "";
+            background-color: rgba($wh, .5);
+            width: 97.5%;
+            height: get-vw(30);
+            @include md(height, rem(30));
+            z-index: -1;
+            position: absolute;
+            bottom: get-vw(-7);
+            @include md(bottom, rem(7));
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        @include md(position, absolute);
+        @include md(top, 0);
+        @include md(right, 0);
+        @include md(bottom, 0);
+        @include md(left, 0);
+        @include md(width, 100%);
+        @include md(height, 100%);
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include md(display, inherit);
+    }
+
+    &__link {
+        font: {
+            size: get-vw(15);
+            weight: 300;
+        }
+
+        transition: color .3s linear;
+        color: $lbl;
+        @include md(font-size, rem(15));
+        @include md(display, inline-block);
+        @include md(padding-top, rem(5));
+        @include md(padding-bottom, rem(5));
+
+        &_active {
+            font-weight: 700;
+        }
+
+        &:hover {
+            color: $bl;
+            transition: color .3s linear;
+        }
+    }
+}

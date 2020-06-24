@@ -1,0 +1,148 @@
+.modal-sign {
+    position: absolute;
+    top: -100%;
+    transition: top .4s ease-in;
+    left: 50%;
+    z-index: 500;
+    transform: translate(-50%, -50%);
+    margin: auto auto;
+    background: rgb(252, 252, 253);
+    background: linear-gradient(76deg, rgba(252, 252, 253, 1) 0%, rgba(253, 242, 237, 1) 100%);
+
+    padding: {
+        top: get-vw(75);
+        right: get-vw(125);
+        bottom: get-vw(75);
+        left: get-vw(125);
+    }
+
+    border-radius: get-vw(45);
+    @include md(border-radius, rem(45));
+    &__text {
+        text-align: center;
+    }
+
+    &__paragraph {
+        font: {
+            size: get-vw(36);
+            weight: 300;
+        }
+
+        @include md(font-size, rem(36));
+        margin-bottom: get-vw(20);
+        @include md(margin-bottom, rem(20));
+    }
+
+    &__about {
+        font: {
+            size: get-vw(16);
+            weight: 300;
+        }
+
+        @include md(font-size, rem(16));
+        margin-bottom: get-vw(35);
+        @include md(margin-bottom, rem(35))
+    }
+
+    max-width: get-vw(740);
+    @include md(max-width, rem(740));
+}
+
+.form {
+    &__wrapper {
+        display: flex;
+    }
+
+    &__input {
+        width: 100%;
+        margin-bottom: get-vw(15);
+        @include md(margin-bottom, rem(15));
+
+        padding: {
+            top: get-vw(30);
+            right: get-vw(45);
+            bottom: get-vw(30);
+            left: get-vw(45);
+        }
+
+        @include md(padding-top, rem(30));
+        @include md(padding-right, rem(45));
+        @include md(padding-bottom, rem(30));
+        @include md(padding-left, rem(45));
+        border-radius: get-vw(40);
+        @include md(border-radius, rem(40));
+
+        border: {
+            style: solid;
+            width: get-vw(1);
+            color: #fbeeef;
+        }
+
+        @include md(border-width, rem(1));
+
+        font: {
+            size: get-vw(18);
+            weight: 300;
+        }
+
+        @include md(font-size, rem(18));
+        cursor: text;
+    }
+
+    &__label {
+        position: relative;
+
+        .form__input {
+            cursor: pointer;
+        }
+    }
+
+    &__icon {
+        fill: #aeaeae;
+        position: absolute;
+        top: 0;
+        right: 30px;
+    }
+
+    &__img {
+        height: get-vw(385);
+        @include md(height, rem(385));
+        width: get-vw(250);
+        @include md(width, rem(250));
+        position: absolute;
+        left: get-vw(-90);
+        bottom: get-vw(90);
+        @include md(left, rem(-90));
+        @include md(bottom, rem(90));
+        z-index: -1;
+    }
+
+    &__button {
+        font: {
+            size: get-vw(18);
+            weight: 700;
+        }
+
+        @include md(font-size, rem(18));
+        max-width: inherit;
+        width: 100%;
+
+        &:after {
+            content: url("../img/modal-sign/plant.png");
+        }
+
+        padding-bottom: get-vw(23);
+        @include md(padding-bottom, rem(23));
+        box-shadow: 0 get-vw(9) get-vw(4) get-vw(-3) rgba(243, 157, 160, 1);
+        @include md(box-shadow, 0 rem(9) rem(4) rem(-3) rgba(243, 157, 160, 1));
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: get-vw(-1) get-vw(-1) get-vw(8) rgba(215, 116, 122, 0.77);
+        @include md(text-shadow, rem(-1) rem(-1) rem(8) rgba(215, 116, 122, 0.77))
+    }
+}
+
+.modal_active {
+    top: 50%;
+    transition: top .7s ease-out;
+}

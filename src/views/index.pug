@@ -1,0 +1,20 @@
+extends layouts/default
+include helpers/mixins
+include ../blocks/modules/header/header
+include ../blocks/modules/overlay/overlay
+include ../blocks/components/modal-sign/modal-sign
+include ../blocks/components/modal-accept/modal-accept
+
+block variables
+	- const title = "gulp-pug-starter"
+
+block content
+	#site-container
+		+overlay
+		+modal-sign
+		+modal-accept
+		+header
+
+block scripts
+	script(src="js/main.js")
+	script(src="js/vendor.js")

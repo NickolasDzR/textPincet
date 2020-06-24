@@ -1,0 +1,174 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --viewport: 1980px;
+}
+
+body {
+    font: {
+        family: 'Museo Sans Cyrl', sans-serif;
+        weight: 400;
+    }
+
+    color: $lbl;
+    min-width: rem(320);
+    overflow-x: hidden;
+    margin: 0 auto;
+    background-color: $wh
+}
+
+.svg-icon {
+    fill: #ee858c;
+    width: rem(15);
+    height: rem(15);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: {
+        family: 'Museo Sans Cyrl', sans-serif;
+        weight: 400;
+    }
+
+    color: $lbl;
+    min-width: rem(320);
+    overflow-x: hidden;
+    margin: 0 auto;
+    background-color: $wh;
+    position: relative;
+}
+
+#site-container {
+    position: relative;
+}
+
+.svg-icon {
+    fill: #ee858c;
+    width: rem(15);
+    height: rem(15);
+}
+
+.container {
+    @include container();
+}
+
+.row {
+    @include row();
+}
+
+.col-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    @include md(flex-wrap, wrap);
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+
+    padding: {
+        top: get-vw(26);
+        right: get-vw(25);
+        bottom: get-vw(26);
+        left: get-vw(25);
+    }
+
+    @include md(padding-top, 1.15rem);
+    @include md(padding-right, rem(25));
+    @include md(padding-bottom, 1.15rem);
+    @include md(padding-left, rem(30));
+    @include md(width, 72%);
+
+    font: {
+        size: get-vw(15);
+        weight: 500;
+    }
+
+    @include md(font-size, 0.7375rem);
+
+    &__icon {
+        padding-left: get-vw(55);
+        @include md(padding-left, rem(55));
+        &_calendar {
+            display: inline-block;
+            position: absolute;
+            top: 39%;
+            left: get-vw(30);
+            @include md(left, 2.375rem);
+            @include md(top, 33%);
+        }
+    }
+
+    border-radius: get-vw(50);
+    @include md(border-radius, rem(35));
+    border: none;
+    background-color: $wh;
+    box-shadow: 0 get-vw(3) 0 0 rgba(#ebeaea, 1);
+    @include md(box-shadow, 0 rem(3) 0 0 rgba(#ebeaea, 1));
+    cursor: pointer;
+}
+
+.shadow-box {
+    border-radius: 50%;
+    box-shadow: 0px 0px get-vw(37) get-vw(-10) rgba(0, 0, 0, 0.75);
+    @include md(box-shadow, 0px 0px rem(10) rem(-10) rgba(0, 0, 0, 0.75));
+}
+
+.close-button {
+    width: get-vw(15);
+    height: get-vw(15);
+    @include md(width, rem(15));
+    @include md(height, rem(15));
+    position: absolute;
+    top: get-vw(30);
+    @include md(top, rem(30));
+    right: get-vw(30);
+    @include md(right, rem(30));
+    &:hover {
+        .close-button__span {
+            &:before, &:after {
+                background-color: #f4a2a5;
+                transition-property: color, rotate;
+                transition-delay: .7s, .3s;
+            }
+        }
+    }
+    &__span {
+        pointer-events: none;
+        &:before, &:after {
+            content: '';
+            width: get-vw(1);
+            @include md(width, rem(1));
+            height: get-vw(15);
+            @include md(height, rem(15));
+            background-color: #c3c4c7;
+            display: inline-block;
+            transition: color .7s linear;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+}

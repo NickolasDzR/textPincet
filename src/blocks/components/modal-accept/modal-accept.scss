@@ -1,0 +1,40 @@
+.modal-accept {
+    text-align: center;
+
+    padding: {
+        top: get-vw(75);
+        right: get-vw(125);
+        bottom: get-vw(75);
+        left: get-vw(125);
+    }
+
+    @include md(padding-top, rem(125));
+    @include md(padding-right, rem(125));
+    @include md(padding-bottom, rem(125));
+    @include md(padding-left, rem(125));
+    background-color: #fefbf9;
+
+    border: {
+        width: get-vw(1);
+        style: solid;
+        color: #fbeeef;
+    }
+
+    &__icon {
+        width: get-vw(90);
+        height: get-vw(90)
+    }
+
+    &__paragraph {
+        font: {
+            size: get-vw(30);
+            weight: 700;
+        }
+
+        @include md(font-size, rem(30));
+
+        &_weight_normal {
+            font-weight: 300;
+        }
+    }
+}

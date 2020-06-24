@@ -1,0 +1,17 @@
+mixin modal-sign()
+    .modal-sign
+        .modal-sign__text
+            p.modal-sign__paragraph Получите программу обучения
+            p.modal-sign__about Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+        form.form(action="#")
+            .form__wrapper
+            .form__dropdown
+                label.form__label(for="")
+                    input.form__input(type="text" placeholder="Ваше имя")
+                    +icon('arrow-down', 'svg-icon form__icon')
+            input.form__input(type="text" placeholder="Ваше имя")
+            input.form__input(type="text" placeholder="Ваш номер телефона")
+            img.form__img(src="./img/modal-sign/list.png", alt="list card")
+            button.button.title__button.form__button Получить программу
+        a(href="#").close-button
+            span.close-button__span
