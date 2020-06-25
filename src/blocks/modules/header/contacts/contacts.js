@@ -1,4 +1,4 @@
-const contactButton = document.querySelector('.contact__button'),
+const contactButton = document.querySelector('.contacts__button'),
     overlay = document.querySelector('.overlay'),
     modalSign = document.querySelector('.modal-sign'),
     formButton = document.querySelector('.form__button'),
@@ -8,7 +8,9 @@ const contactButton = document.querySelector('.contact__button'),
 contactButton.addEventListener('click', e => {
     e.preventDefault();
     overlay.classList.add('overlay_active');
-    modalSign.classList.add('modal_active');
+    setTimeout(() => {
+        modalSign.classList.add('modal_active');
+    }, 200);
 })
 
 formButton.addEventListener('click', e => {
@@ -16,7 +18,7 @@ formButton.addEventListener('click', e => {
     modalSign.classList.remove('modal_active');
     setTimeout(() => {
         modalAccept.classList.add('modal_active');
-    }, 500);
+    }, 200);
 })
 
 
@@ -24,17 +26,17 @@ closeButton.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault();
         if (e.target.parentElement === modalSign) {
-            overlay.classList.remove('overlay_active');
+            modalSign.classList.remove('modal_active');
             setTimeout(() => {
-                modalSign.classList.remove('modal_active');
-            }, 200);
+                overlay.classList.remove('overlay_active');
+            }, 300);
             return;
         }
         if (e.target.parentElement === modalAccept) {
-            overlay.classList.remove('overlay_active');
+            modalAccept.classList.remove('modal_active');
             setTimeout(() => {
-                modalAccept.classList.remove('modal_active');
-            }, 200);
+                overlay.classList.remove('overlay_active');
+            }, 400);
             return;
         }
     });

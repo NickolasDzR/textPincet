@@ -125,7 +125,7 @@ $break_xl-num: rnum(1680);
 $break_lg-num: rnum(1280);
 $break_md-num: rnum(992);
 $break_sm-num: rnum(768);
-$break_xs-num: rnum(320);
+$break_xs-num: rnum(576);
 
 $break_xl: $break_xl-num+rem;
 $break_lg: $break_lg-num+rem;
@@ -173,7 +173,7 @@ $break_xs: $break_xs-num+rem;
 }
 
 @mixin container-md() {
-    @include sm(max-width, ($break_md-num) +rem);
+    @include md(max-width, ($break_md-num) +rem);
 }
 
 @mixin container-sm() {
@@ -216,8 +216,6 @@ $break_xs: $break_xs-num+rem;
 @mixin row() {
     display: flex;
     flex-wrap: wrap;
-    // margin-right: -$col-fields;
-    // margin-left: -$col-fields;
     margin-right: get-vw(-$col-fields-num * 16);
     margin-left: get-vw(-$col-fields-num * 16);
     @include md(margin-right, -0.9375rem);
@@ -271,73 +269,37 @@ $break_xs: $break_xs-num+rem;
     padding-left: get-vw($col-fields-num * 16);
 }
 
-/**col with intend **/
-// @mixin col-xl($n) {
-//     flex-basis: get-vw((($break_xl-num / 12) * $n) * 16);
-//     max-width: get-vw(($break_xl-num / 12 * $n) * 16);
-//     padding-right: get-vw($col-fields-num * 16);
-//     padding-left: get-vw($col-fields-num * 16);
-// }
-
-// @mixin col-lg($n) {
-//     @include lg(flex-basis, get-vw(($break_lg-num / 12 * $n) * 16));
-//     @include lg(max-width, get-vw(($break_lg-num / 12 * $n) * 16));
-//     @include lg(padding-right, get-vw($col-fields-num * 16));
-//     @include lg(padding-left, get-vw($col-fields-num * 16));
-// }
-
-// @mixin col-md($n) {
-//     @include md(flex-basis, $break_md-num / 12 * $n - ($col-fields-num * 2) +rem);
-//     @include md(max-width, $break_md-num / 12 * $n - ($col-fields-num * 2) +rem);
-//     @include md(padding-left, $col-fields);
-//     @include md(padding-right, $col-fields);
-// }
-
-// @mixin col-sm($n) {
-//     @include sm(flex-basis, $break_sm-num / 12 * $n + rem);
-//     @include sm(max-width, $break_sm-num / 12 * $n + rem);
-//     @include sm(padding-left, $col-fields);
-//     @include sm(padding-right, $col-fields);
-// }
-
-// @mixin col-xs($n) {
-//     @include xs(flex-basis, $break_xs-num / 12 * $n + rem);
-//     @include xs(max-width, $break_xs-num / 12 * $n + rem);
-//     @include xs(padding-left, $col-fields);
-//     @include xs(padding-right, $col-fields);
-// }
-
 @mixin col-xl($n) {
-    flex-basis: 100 / 12 * $n + '%';
-    max-width: 100 / 12 * $n + '%';
+    flex-basis: 100% / 12 * $n;
+    max-width: 100% / 12 * $n;
     padding-right: get-vw($col-fields-num * 16);
     padding-left: get-vw($col-fields-num * 16);
 }
 @mixin col-lg($n) {
-    @include lg(flex-basis, 100 / 12 * $n + '%');
-    @include lg(max-width, 100 / 12 * $n + '%');
+    @include lg(flex-basis, 100% / 12 * $n);
+    @include lg(max-width, 100% / 12 * $n);
     @include lg(padding-right, get-vw($col-fields-num * 16));
     @include lg(padding-left, get-vw($col-fields-num * 16));
 }
 @mixin col-md($n) {
-    @include md(flex-basis, 100 / 12 * $n + '%');
-    @include md(max-width, 100 / 12 * $n + '%');
-    @include md(padding-right, rem($col-fields-num));
-    @include md(padding-left, rem($col-fields-num ));
+    @include md(flex-basis, 100% / 12 * $n);
+    @include md(max-width, 100% / 12 * $n);
+    @include md(padding-right, $col-fields);
+    @include md(padding-left, $col-fields);
 }
 
 @mixin col-sm($n) {
-    @include sm(flex-basis, 100 / 12 * $n + '%');
-    @include sm(max-width, 100 / 12 * $n + '%');
-    @include sm(padding-right, rem($col-fields-num));
-    @include sm(padding-left, rem($col-fields-num ));
+    @include sm(flex-basis, 100% / 12 * $n);
+    @include sm(max-width, 100% / 12 * $n);
+    @include sm(padding-right, $col-fields);
+    @include sm(padding-left, $col-fields);
 }
 
 @mixin col-xs($n) {
-    @include xs(flex-basis, 100 / 12 * $n + '%');
-    @include xs(max-width, 100 / 12 * $n + '%');
-    @include xs(padding-right, rem($col-fields-num));
-    @include xs(padding-left, rem($col-fields-num ));
+    @include xs(flex-basis, 100% / 12 * $n);
+    @include xs(max-width, 100% / 12 * $n);
+    @include xs(padding-right, $col-fields);
+    @include xs(padding-left, $col-fields);
 }
 
 /** col with intend **/

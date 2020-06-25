@@ -1,8 +1,12 @@
 include contacts/contacts
 include navigation/navigation
 include title/title
+include ../../components/hamburger/hamburger
+include ../../components/paralax/paralax
 mixin header()
     header.header(style="background-image: url('./img/header/background.jpg')")
+        +paralax
+        +hamburger
         +contacts
         +navigation
         +title

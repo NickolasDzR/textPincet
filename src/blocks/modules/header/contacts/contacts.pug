@@ -23,13 +23,13 @@ mixin contacts()
                                     +icon('phone-call', 'svg-icon')
                                 .contacts__text-wrapper
                                     p.contacts__message Звоните, мы сейчас работаем
-                                    p.contacts__number +375 33 382 24 99
+                                    p.contacts__number <a href="tel:+375333822499">+375 33 382 24 99</a>
                             .contacts__graph.col-wrapper
                                 .contacts__icon.shadow-box
                                     +icon('clock', 'svg-icon contacts__icon-clock')
                                 .contacts__text-wrapper
                                     p.contacts__graphic Пн-Вс <span>9:00-21:00</span>
                         .contacts__button-wrp
-                            button.button.button__icon.contact__button
+                            button.button.button__icon.contacts__button
                                 +icon('calendar', 'svg-icon button__icon_calendar')
                                 |   Записаться онлайн

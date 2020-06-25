@@ -8,10 +8,10 @@
         left: get-vw(125);
     }
 
-    @include md(padding-top, rem(125));
-    @include md(padding-right, rem(125));
-    @include md(padding-bottom, rem(125));
-    @include md(padding-left, rem(125));
+    @include md(padding-top, 3.8125rem);
+    @include md(padding-right, 2.8125rem);
+    @include md(padding-bottom, 3.8125rem);
+    @include md(padding-left, 3.8125rem);
     background-color: #fefbf9;
 
     border: {
@@ -22,7 +22,9 @@
 
     &__icon {
         width: get-vw(90);
-        height: get-vw(90)
+        height: get-vw(90);
+        @include md(width, rem(80));
+        @include md(height, rem(80));
     }
 
     &__paragraph {

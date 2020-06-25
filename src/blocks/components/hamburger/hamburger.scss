@@ -1,0 +1,99 @@
+.hamburger {
+    display: none;
+    @include md(display, inline-block);
+    position: absolute;
+    top: 3.8375rem;
+    right: rem(100);
+    @include sm(top, 2.9375rem);
+    @include sm(right, 3.25rem);
+    @include xs(top, 2.1375rem);
+    z-index: 2051;
+    width: rem(30);
+    height: rem(30);
+    cursor: pointer;
+    pointer-events: all;
+
+    &__inner {
+        display: inline-block;
+        width: rem(30);
+        height: rem(2);
+        background-color: $lr;
+        border-radius: rem(6);
+
+        transition: {
+            duration: .2s;
+            property: transform;
+            timing-function: linear;
+        }
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            width: rem(15);
+            height: rem(2);
+
+            transform: translate3d(0, rem(6), 0);
+            transition: all .3s ease-in;
+            background-color: $bl;
+            border-radius: rem(6);
+            opacity: 1;
+        }
+    }
+
+    &_active {
+
+        .hamburger__inner {
+            transform: rotate(45deg);
+            background-color: $lr;
+
+            &:before {
+                width: rem(30);
+                transform: rotate(90deg);
+                background-color: $bl;
+
+                transition: {
+                    delay: .1s;
+                    duration: .2s;
+                    property: all;
+                    timing-function: linear;
+                }
+            }
+
+            transition: {
+                duration: .2s;
+                property: transform;
+                timing-function: linear;
+            }
+        }
+
+        .hamburger__text {
+            &:after {
+                position: absolute;
+                top: rem(-10);
+                transition: all .2s linear;
+            }
+        }
+    }
+
+    &__box {
+        position: fixed;
+        z-index: 11230000;
+        top: 0;
+        left: 0;
+        background-color: $bl;
+    }
+
+    &__text {
+        position: relative;
+        margin-bottom: rem(0);
+        line-height: 0;
+
+        &:after {
+            content: 'Меню';
+            position: absolute;
+            top: 0;
+            transition: top .2s linear;
+        }
+    }
+}

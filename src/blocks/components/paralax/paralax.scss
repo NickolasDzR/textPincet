@@ -1,0 +1,24 @@
+.paralax {
+    &__image-1 {
+        position: absolute;
+        top: get-vw(100);
+        @include md(top, rem(300));
+
+        img {
+            @include md(max-width, 70%);
+        }
+    }
+
+    &__image-2 {
+        position: absolute;
+        // top: rem(100);
+        top: get-vw(100);
+        right: get-vw(-150);
+        @include lg(right, -15.8125vw);
+        @include md(right, -15.5rem);
+
+        img {
+            @include md(max-width, 70%);
+        }
+    }
+}

@@ -1,7 +1,17 @@
 .contacts {
+    padding-top: rem(12);
+    z-index: 5;
+    position: relative;
     &__left {
         @include col-xl(4);
         @include col-lg(4);
+
+        .col-wrapper {
+            @include md(justify-content, flex-start);
+        }
+
+        @include md(padding-top, rem(15));
+        @include md(padding-bottom, rem(15));
         @include col-md(12);
     }
 
@@ -15,22 +25,17 @@
         padding: {
             left: get-vw(80);
         }
-        @include md(padding-left, rem(15));
-        @include md(padding-right, rem(15));
 
         &-wrapper {
-            justify-content: space-between;
             width: 100%;
-            @include row-md();
-            @include md(justify-content, space-evenly);
+            justify-content: space-between;
+            @include xs(justify-content, center);
         }
     }
 
     &__direct {
         margin: auto 0;
-        @include md(margin, 0 auto);
         @include md(font-size, rem(16));
-        @include md(margin-bottom, rem(10));
 
         font: {
             size: get-vw(14);
@@ -41,20 +46,25 @@
         }
 
         @include lg(margin-left, 1.13958vw);
+        @include md(margin-left, 0);
 
         br {
-            display: none;
+            @include lg(display, none);
         }
+
+        @include col-md(5);
+        @include xs(display, none);
     }
 
     &__logo {
-        @include md(width, 100%);
+        @include md(position, relative);
+        @include col-md(5);
+
         &-img {
             max-width: get-vw(280);
             @include lg(max-width, 12.58333vw);
+            @include md(max-width, 80%);
             @include md(display, block);
-            @include md(margin, 0 auto);
-            @include md(margin-bottom, rem(10));
         }
     }
 
@@ -62,20 +72,32 @@
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
-        @include col-md(4);
+        @include col-md(5);
+        @include col-sm(6);
+        @include col-xs(12);
+        @include xs(justify-content, center);
     }
+
     &__detail {
         @include col-md(4);
+        @include col-sm(6);
+        @include col-xs(12);
         @include md(display, flex);
         @include md(flex-direction, column);
         @include md(justify-content, center);
+        @include xs(max-width, inherit);
+        @include xs(flex-basis, inherit);
+        @include xs(margin-top, rem(25));
+        @include sm(flex-basis, inherit);
+        @include sm(max-width, inherit);
     }
 
     &__map {
         max-width: get-vw(78);
         max-height: get-vw(78);
         @include md(max-width, 100%);
-        @include md(max-height, 100%)
+        @include md(max-height, 100%);
+        @include xs(margin-right, rem(5));
     }
 
     &__adress {
@@ -87,7 +109,7 @@
         margin-bottom: get-vw(10);
         @include md(margin-bottom, rem(0));
         @include lg(font-size, get-vw(12));
-        @include md(font-size, 0.65rem);
+        @include md(font-size, rem(14));
 
         span {
             font-weight: 700;
@@ -108,6 +130,9 @@
         @include md(padding-bottom, rem(3));
 
         @include md(border-bottom-width, rem(1));
+        @include md(display, inline-block);
+        @include md(font-size, rem(12));
+        @include md(margin-top, rem(7));
 
         &:hover {
             .contacts__map-box {
@@ -116,6 +141,7 @@
                 transition: opacity .3s linear;
             }
         }
+        @include xs(position, relative);
     }
 
     &__map-box {
@@ -132,6 +158,10 @@
             @include md(width, rem(400));
             @include md(height, rem(400));
         }
+        @include xs(width, rem(250));
+        @include xs(height, rem(250));
+        @include xs(left, rem(-80));
+        @include xs(top, rem(20));
     }
 
     &__message {
@@ -142,6 +172,7 @@
 
         padding-left: get-vw(15);
         @include md(padding-left, rem(15));
+        @include md(font-size, rem(10));
 
         position: relative;
 
@@ -204,24 +235,34 @@
 
         @include lg(font-size, get-vw(22));
 
-        @include md(font-size, 1rem);
+        @include md(font-size, rem(20));
     }
 
     &__graphic {
         font-size: get-vw(21);
-        @include md(font-size, 1.1125rem);
+        @include md(font-size, rem(20));
 
         span {
             font-weight: 700;
         }
     }
 
+    &__button {
+        @include md(white-space, nowrap);
+        @include md(width, 100%);
+        @include md(padding-left, 0);
+        @include md(padding-right, 0);
+        @include sm(width, 75%);
+        @include xs(width, 100%);
+    }
+
     &__button-wrp {
         display: inline-flex;
         align-items: center;
-        @include col-md(12);
-        @include md(justify-content, center);
-        @include md(margin-top, rem(17));
+        @include col-md(3);
+        @include col-sm(12);
+        @include sm(margin-top, rem(25));
+        @include sm(justify-content, center);
     }
 }
 

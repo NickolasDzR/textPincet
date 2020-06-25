@@ -2,10 +2,16 @@
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: contain;
+    position: relative;
+    z-index: 5;
+    @include lg(background-size, 40%);
+    @include md(background-size, 50%);
     padding-top: get-vw(90);
+    @include sm(padding-top, 2.625rem);
     @include md(padding-top, rem(90));
     padding-bottom: get-vw(170);
-    @include md(padding-bottom, rem(170));
+    @include lg(padding-bottom, 11.05417vw);
+    @include md(padding-bottom, 7.625rem);
 
     &__heading {
         font: {
@@ -13,7 +19,7 @@
             weight: 300;
         }
 
-        @include md(font-size, rem(48));
+        @include lg(font-size, get-vw(40));
 
         span {
             font-weight: 700;
@@ -21,11 +27,19 @@
 
         margin-bottom: get-vw(45);
         @include md(margin-bottom, rem(45));
+        @include md(font-size, 1.7rem);
+        @include sm(font-size, 1.3rem);
+        @include sm(margin-bottom, 1.2125rem);
     }
 
     &__subject {
         @include col-xl(7);
+        @include col-md(8);
+        @include md(margin-bottom, 0.8125rem);
+        @include md(margin-left, rem(12));
+        @include col-xs(12);
         @include offset-xl-left(1);
+        @include offset-lg-left(0);
     }
 
     &__list {
@@ -49,6 +63,7 @@
         }
 
         @include md(font-size, rem(18));
+        @include sm(font-size, 0.925rem);
 
         margin: {
             top: get-vw(25);
@@ -64,8 +79,8 @@
             @include md(height, rem(20));
             background-color: $wh;
             border-radius: 50%;
-            box-shadow: 0px 0px get-vw(24) get-vw(-2) rgba($lr, 0.75);
-            @include md(box-shadow, 0px 0px rem(24) rem(-2) rgba($lr, 0.75));
+            box-shadow: 0 0 get-vw(24) get-vw(-2) rgba($lr, 0.75);
+            @include md(box-shadow, 0 0 rem(24) rem(-2) rgba($lr, 0.75));
             position: absolute;
             left: get-vw(10);
             top: get-vw(2);
@@ -124,25 +139,41 @@
         }
 
         @include md(border-bottom-width, rem(4));
-        box-shadow: 0px 5px 1px -1px rgba(#d7747a, 0.75);
+        box-shadow: 0 get-vw(5) get-vw(1) get-vw(-1) rgba(#d7747a, 0.75);
+        @include md(box-shadow, 0 rem(5) rem(1) rem(-1) rgba(#d7747a, 0.75));
         position: relative;
 
         &:after {
-            content: url('../img/header/title/branch.png');
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: get-vw(200);
-            height: get-vw(75);
-            @include md(max-width, 100%);
-            @include md(height, auto);
-            right: get-vw(-37);
-            top: get-vw(6);
+
+            content: '';
+            background-image: url(../img/header/title/branch.png);
+            background-repeat: no-repeat;
+            background-size: 16.98958vw 4.70625vw;
+            @include md(background-size, rem(200) rem(60));
             @include md(width, rem(200));
-            @include md(height, rem(75));
-            @include md(right, rem(-37));
-            @include md(top, rem(6));
+            @include md(height, rem(200));
+            @include md(top, rem(10));
+            position: absolute;
+            top: 0;
+            @include md(top, rem(24));
+            width: 16.98958vw;
+            height: 4.70625vw;
+            @include sm(top, rem(8));
+            @include sm(width, 10.5rem);
+            @include sm(height, 3rem);
+            @include sm(background-size, 9.5rem 3rem);
+            @include xs(background-size, 8rem 2.2rem);
+            @include xs(width, 9.5rem);
+            @include xs(height, 2.2rem);
+            @include xs(top, 1rem);
         }
+
+        @include md(max-width, rem(360));
+        @include md(padding-right, rem(125));
+        @include xs(max-width, 18.5rem);
+        @include xs(padding-right, 6.25rem);
+        @include xs(font-size, 0.675rem);
+        @include sm(padding-right, 7.05rem);
     }
 
     &__card {
@@ -152,8 +183,13 @@
         &-wrapper {
             position: absolute;
             right: get-vw(-370);
-            @include md(right, rem(-270));
-            top: 0px;
+            @include lg(right, -29.27083vw);
+            top: 0;
+            @include md(top, rem(110));
+            @include md(right, -11.4rem);
+            @include sm(right, -10.5rem);
+            @include sm(top, 9.875rem);
+            @include xs(display, none);
         }
     }
 
@@ -161,12 +197,12 @@
         display: flex;
         border-radius: 50%;
 
+        @include lg(max-width, 70%);
+
         &-wrapper {
             position: absolute;
             left: get-vw(310);
-            @include md(left, rem(310));
             top: get-vw(165);
-            @include md(top, rem(165));
             cursor: pointer;
             z-index: 1;
 
@@ -180,6 +216,26 @@
                 opacity: 1;
                 transition: opacity .3s linear;
             }
+
+            &:before {
+                content: '';
+                background-image: url('../img/header/title/figure.png');
+                width: get-vw(100);
+                @include md(width, rem(100));
+                height: get-vw(100);
+                @include md(height, rem(100));
+                background-size: get-vw(100) get-vw(100);
+                @include md(background-size, get-vw(100) get-vw(100));
+                background-repeat: no-repeat;
+                display: inline-block;
+                position: absolute;
+                top: get-vw(-110);
+                left: get-vw(-10);
+                z-index: -1;
+                @include md(top, -3.875rem);
+                @include md(left, -0.225rem);
+                @include sm(top, -2.675rem);
+            }
         }
 
         &-box {
@@ -189,6 +245,12 @@
                 bottom: get-vw(32);
                 left: get-vw(25);
             }
+
+            @include sm(padding-left, 1.1625rem);
+            @include sm(padding-right, 1.1625rem);
+            @include sm(padding-bottom, 2rem);
+            @include sm(width, 8rem);
+            @include sm(height, 9rem);
 
             border-radius: 80% 80% 0 0 / 20% 20% 0 0;
             border-bottom-left-radius: get-vw(15);
@@ -207,8 +269,10 @@
             background-color: $wh;
             display: block;
             position: absolute;
-            left: 30px;
-            bottom: 20px;
+            left: get-vw(30);
+            @include md(left, rem(30));
+            bottom: get-vw(20);
+            @include md(bottom, rem(20));
             z-index: -1;
             opacity: 1;
             transition: opacity .5s linear;
@@ -222,8 +286,11 @@
             weight: 300;
         }
 
+        @include sm(font-size, 0.775rem);
+
         color: #282828;
         @include md(font-size, rem(14));
+        @include sm(font-size, 0.575rem);
         letter-spacing: get-vw(2);
         @include md(letter-spacing, rem(2));
         text-align: center;

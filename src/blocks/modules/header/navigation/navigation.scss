@@ -2,12 +2,15 @@
     padding: {
         top: get-vw(15);
     }
+    z-index: 5;
 
     @include md(padding-top, rem(15));
 
     &__inner {
         background-color: #fff;
         position: relative;
+        z-index: 100;
+        @include md(z-index, 2000);
 
         padding: {
             top: get-vw(24);
@@ -20,6 +23,7 @@
         @include md(padding-right, rem(35));
         @include md(padding-bottom, rem(24));
         @include md(padding-left, rem(35));
+        @include xs(padding-top, 4.5rem);
         width: 100%;
         z-index: 1;
 
@@ -45,6 +49,12 @@
         @include md(left, 0);
         @include md(width, 100%);
         @include md(height, 100%);
+        @include md(transform, translateX(100%));
+        @include md(transition, transform .6s ease-in);
+        &_active {
+            @include md(transform, translateX(0));
+            @include md(transition, transform .6s ease-out);
+        }
     }
 
     &__list {
